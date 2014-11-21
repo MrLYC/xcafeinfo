@@ -11,6 +11,7 @@ class Sections(object):
     """
     DEFAULT = "setting"
     TEST = "test"
+    SELECTOR = "selector"
 
 
 CONF = ConfigParser()
