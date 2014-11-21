@@ -49,9 +49,10 @@ def parse_args(args, conf, sections):
         "-u", "--user", default=conf.get(sections.DEFAULT, "user"))
     parser.add_argument(
         "-p", "--password", default=conf.get(sections.DEFAULT, "password"))
+
+    conf_nodes = conf.get(sections.DEFAULT, "nodes")
     parser.add_argument(
-        "-n", "--nodes", action="append", nargs='+',
-        default=conf.get(sections.DEFAULT, "nodes").split(","))
+        "-n", "--nodes", nargs='+', default=(i for i in conf_nodes if i))
 
     parser.add_argument(
         "--server_selector", default=conf.get(sections.SELECTOR, "server"))
